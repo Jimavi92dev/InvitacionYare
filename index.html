@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi Primera Comunión - Yaretzi Yatziri</title>
+  <!-- Tipografías: título ceremonial + nombre manuscrito + cuerpo sobrio -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Marcellus&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Fondo con patrón, brillo y pétalos -->
+  <div class="bg-pattern" aria-hidden="true"></div>
+  <ul class="petals" aria-hidden="true">
+    <li></li><li></li><li></li><li></li><li></li>
+    <li></li><li></li><li></li><li></li><li></li>
+  </ul>
+
+  <!-- Encabezado -->
+  <header class="hero hero-compact">
+    <!-- Listones dorados -->
+    <div class="ribbon ribbon-left" aria-hidden="true"></div>
+    <div class="ribbon ribbon-right" aria-hidden="true"></div>
+
+    <!-- Ornamentos superiores -->
+    <div class="ornament-edge left" aria-hidden="true"></div>
+    <div class="ornament-edge right" aria-hidden="true"></div>
+
+    <!-- Cáliz + hostia (pequeño) -->
+    <div class="hero-art">
+      <svg class="chalice" viewBox="0 0 300 360" aria-hidden="true" role="img">
+        <defs>
+          <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#f8eeb8"/>
+            <stop offset="45%" stop-color="#e3c371"/>
+            <stop offset="85%" stop-color="#b88f3f"/>
+          </linearGradient>
+          <radialGradient id="hostGlow" cx="50%" cy="45%" r="60%">
+            <stop offset="0%" stop-color="rgba(255,255,255,1)"/>
+            <stop offset="60%" stop-color="rgba(255,255,255,.75)"/>
+            <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+          </radialGradient>
+          <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="4"/>
+          </filter>
+        </defs>
+        <circle cx="150" cy="75" r="52" fill="url(#hostGlow)"></circle>
+        <circle cx="150" cy="75" r="36" fill="#FFFFFF" stroke="#d6b25a" stroke-width="3"></circle>
+        <line x1="150" y1="58" x2="150" y2="92" stroke="#c49a3a" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="133" y1="75" x2="167" y2="75" stroke="#c49a3a" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M90,110 Q150,180 210,110 L210,160 Q210,205 175,230 L175,255 L125,255 L125,230 Q90,205 90,160 Z" fill="url(#goldGrad)" stroke="#8f6a29" stroke-width="3" />
+        <rect x="138" y="255" width="24" height="16" rx="3" fill="#a8823b" />
+        <ellipse cx="150" cy="287" rx="55" ry="12" fill="url(#goldGrad)" stroke="#8f6a29" stroke-width="2"/>
+        <g class="sparkles" fill="#fff8cf" filter="url(#softGlow)">
+          <circle cx="70" cy="60" r="3"/><circle cx="238" cy="48" r="3"/><circle cx="235" cy="105" r="3"/><circle cx="65" cy="112" r="3"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="hero-text">
+      <!-- Título ceremonial mejorado -->
+      <h1 class="title">
+        <span class="title-top">Mi Primera</span>
+        <span class="title-main">Comunión</span>
+      </h1>
+      <p class="name">Yaretzi Yatziri</p>
+
+      <!-- Cruz centrada con latido -->
+      <div class="center-cross" aria-hidden="true">
+        <svg viewBox="0 0 64 64" focusable="false" aria-hidden="true">
+          <rect x="30" y="14" width="4" height="36" rx="2"></rect>
+          <rect x="18" y="28" width="28" height="4" rx="2"></rect>
+        </svg>
+      </div>
+
+      <!-- Floritura bajo el título -->
+      <div class="flourish" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- Carrusel -->
+  <main class="carousel-wrap">
+    <div class="carousel floral-frame" id="carousel" aria-label="Detalles de la invitación">
+      <figure class="slide current" data-duration="5000"><img src="img/yare2.png" alt="Portada"/></figure>
+      <figure class="slide" data-duration="6000"><img src="img/Yare3.png" alt="Ceremonia"/></figure>
+      <figure class="slide" data-duration="6000"><img src="img/yare4.png" alt="Iglesia"/></figure>
+      <figure class="slide" data-duration="6000"><img src="img/yare5.png" alt="Recepción"/></figure>
+      <button class="nav prev" aria-label="Anterior" id="prevBtn">‹</button>
+      <button class="nav next" aria-label="Siguiente" id="nextBtn">›</button>
+
+      <div class="frame-corner tl" aria-hidden="true"></div>
+      <div class="frame-corner tr" aria-hidden="true"></div>
+      <div class="frame-corner bl" aria-hidden="true"></div>
+      <div class="frame-corner br" aria-hidden="true"></div>
+    </div>
+  </main>
+
+  <!-- Reproductor + ubicaciones (sin cambios funcionales) -->
+  <section class="actions">
+    <div class="player" id="player">
+      <audio id="bgMusic" src="audio/dios.mp3" preload="auto" autoplay muted playsinline></audio>
+
+      <button id="playPause" class="play-btn" aria-pressed="false" aria-label="Reproducir">
+        <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+        <svg class="icon icon-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg>
+      </button>
+
+      <div class="track">
+        <div class="meta">
+          <span class="song">musica.mp3</span>
+          <span class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></span>
+        </div>
+        <input type="range" id="progress" min="0" max="100" value="0" step="0.1" aria-label="Progreso de reproducción" />
+        <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+
+    <div class="locations">
+      <a class="btn outline" target="_blank" rel="noopener"
+         href="https://www.google.com/maps/search/?api=1&query=Iglesia+de+San+Mart%C3%ADn">
+        <span class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3l2 2v2l3 2v12h-4v-6H11v6H7V9l3-2V5l2-2z" fill="currentColor"/></svg></span>
+        <span class="label">Ubicación iglesia</span>
+      </a>
+      <a class="btn outline" target="_blank" rel="noopener"
+         href="https://www.google.com/maps/search/?api=1&query=Sal%C3%B3n+Casa+de+la+Festejada">
+        <span class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9z" fill="currentColor"/></svg></span>
+        <span class="label">Ubicación fiesta</span>
+      </a>
+    </div>
+  </section>
+
+  <footer class="blessing">
+    <p>“Que la luz de Cristo ilumine siempre tu corazón.”</p>
+    <div class="twinkles" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -367,3 +367,27 @@ html,body{ margin:0; padding:0; background:var(--bg); color:var(--ink); font-fam
         font-size: 32px !important;
     }
 }
+
+@media (max-width: 580px){
+  .player{
+    padding: 6px 8px !important;
+  }
+  .play-btn{
+    width: 38px !important;
+    height: 38px !important;
+  }
+  .icon{
+    width: 16px !important;
+    height: 16px !important;
+  }
+  #progress{
+    height: 5px !important;
+  }
+  .meta{
+    font-size: 11px !important;
+  }
+  .song{
+    max-width: 100px;
+  }
+}
+

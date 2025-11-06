@@ -131,3 +131,16 @@ progress.addEventListener('input', ()=>{
 document.addEventListener('visibilitychange', ()=>{
   if (document.hidden && !audio.paused){ audio.pause(); setPlayingState(false); }
 });
+
+
+/* ===== Fix de viewport real para móviles (vh fiable) ===== */
+function setRealVh(){
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--app-vh', `${vh}px`);
+}
+setRealVh();
+window.addEventListener('resize', setRealVh);
+window.addEventListener('orientationchange', setRealVh);
+
+/* iOS puede tardar un instante en recalcular; reintento corto */
+setTimeout(setRealVh, 300);

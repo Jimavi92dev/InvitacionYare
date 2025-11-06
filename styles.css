@@ -420,3 +420,79 @@ html,body{ margin:0; padding:0; background:var(--bg); color:var(--ink); font-fam
         border-radius: 16px;
         background-color: #ffffffaa;
     }
+
+/* ===== MODO HORIZONTAL: carrusel grande y sin deformación ===== */
+@media (orientation: landscape){
+  /* Usamos todo el ancho y gran parte de la altura visible */
+  .carousel-wrap{
+    padding: 0 !important;
+  }
+
+  .carousel{
+    width: 100vw !important;
+    max-width: 100vw !important;
+    border-radius: 0 !important;
+
+    /* Altura basada en viewport dinámico para evitar cortes por barras de navegador */
+    aspect-ratio: auto !important;
+    height: calc(var(--app-vh, 1vh) * 86) !important; /* ~86% de la altura real */
+    box-shadow: var(--shadow), inset 0 0 0 10px rgba(227,195,113,.10);
+  }
+
+  /* Imagen SIEMPRE con proporción correcta, centrada y sin recortes */
+  .slide{
+    background:
+      radial-gradient(circle at 50% 35%, rgba(255,255,255,.85), rgba(247,217,230,.85) 60%, rgba(240,166,193,.60), rgba(227,195,113,.20) 90%),
+      linear-gradient(180deg, #fff7fb, #f3bfd3 70%, #e3c371 100%);
+  }
+  .slide img{
+    /* Claves para landscape: ocupamos la altura completa y limitamos ancho */
+    height: 100% !important;
+    width: auto !important;
+    max-height: 100% !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: transparent !important;
+    margin: 0 auto;          /* centra si sobra ancho */
+    display: block;
+    padding: 6px;            /* pequeño marco blanco */
+    border-radius: 14px;
+    background-color: #ffffffaa;
+  }
+
+  /* Botones de navegación cómodos al dedo en horizontal */
+  .nav{
+    width: 60px !important;
+    height: 60px !important;
+    font-size: 36px !important;
+    top: 50% !important;
+  }
+  .prev{ left: 10px !important; }
+  .next{ right: 10px !important; }
+
+  /* Encabezado más bajo en landscape para dar más espacio al carrusel */
+  .hero{
+    padding: 8px 10px 2px !important;
+  }
+  .hero-art{
+    height: 120px !important;
+  }
+  .chalice{
+    width: 28% !important;
+  }
+
+  /* Player aún más compacto en horizontal */
+  .player{
+    width: 100vw !important;
+    border-radius: 0 !important;
+    padding: 6px 10px !important;
+  }
+}
+
+/* Opcional: en landscape MUY bajo (pantallas pequeñas), un poco más de altura al carrusel */
+@media (orientation: landscape) and (max-height: 420px){
+  .carousel{
+    height: calc(var(--app-vh, 1vh) * 90) !important;
+  }
+}

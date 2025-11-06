@@ -391,3 +391,32 @@ html,body{ margin:0; padding:0; background:var(--bg); color:var(--ink); font-fam
   }
 }
 
+/* ==== Fondo elegante para el carrusel cuando la imagen no cubra todo ==== */
+.slide {
+    background: radial-gradient(circle at 50% 35%, rgba(255,255,255,.85), rgba(247,217,230,.85) 60%, rgba(240,166,193,.60), rgba(227,195,113,.25) 90%), linear-gradient(180deg, #fff7fb, #f3bfd3 70%, #e3c371 100%);
+}
+
+    /* Añadir un suave patrón dorado para que se vea más detallado */
+    .slide::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 15 L45 15 L37 22 L42 32 L30 26 L18 32 L23 22 L15 15 L25 15 Z' fill='rgba(227,195,113,0.15)'/%3E%3C/svg%3E") repeat center center;
+        background-size: 90px;
+        opacity: .45;
+        pointer-events: none;
+    }
+
+    /* Mantener que la imagen no se deforme ni recorte */
+    .slide img {
+        object-fit: contain !important;
+        object-position: center !important;
+        background: transparent !important; /* para ver el fondo */
+    }
+
+    /* Opción: añadir un marco interior blanco sutil */
+    .slide img {
+        padding: 8px;
+        border-radius: 16px;
+        background-color: #ffffffaa;
+    }
